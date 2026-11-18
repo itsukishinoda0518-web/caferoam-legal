@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>フレンド招待｜CAFE ROAM</title>
+<style>
+:root{color-scheme:light dark;--bg:#FFFBF0;--fg:#2B2622;--muted:#6B625A;--line:#E8DFCF;--accent:#B7791F}
+@media (prefers-color-scheme:dark){:root{--bg:#1C1A17;--fg:#F3EEE6;--muted:#B5ACA2;--line:#3A352F;--accent:#F2C14E}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.8 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif}
+main{max-width:720px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:1.6rem;line-height:1.4;margin:0 0 8px}
+h2{font-size:1.1rem;margin:32px 0 8px;padding-top:16px;border-top:1px solid var(--line)}
+p{margin:0 0 8px}
+.meta,footer{color:var(--muted);font-size:.9rem}
+a{color:var(--accent)}
+nav{margin-bottom:24px;font-size:.9rem}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<main>
+<nav><a href="../">CAFE ROAM</a></nav>
+<h1>CAFE ROAM のフレンド招待</h1>
+<p id="who">フレンドの招待が届いています。</p>
+<p><a id="open" href="caferoam://friends/add" style="display:inline-block;padding:12px 20px;border-radius:999px;background:#2FA36B;color:#fff;text-decoration:none;font-weight:bold">アプリで開く</a></p>
+<p class="meta">ボタンを押しても開かないときは、CAFE ROAM のアプリを入れてから、もう一度このページを開いてください。アプリでは「フレンド」→「フレンドを追加」から、ユーザーIDで探すこともできます。</p>
+<script>
+(function () {
+  var m = location.search.match(/[?&]u=([a-z0-9_]{3,20})/i);
+  if (!m) return;
+  var h = m[1].toLowerCase();
+  var url = 'caferoam://invite/' + h;
+  document.getElementById('who').textContent = '@' + h + ' さんからのフレンド招待です。';
+  document.getElementById('open').setAttribute('href', url);
+  location.href = url;
+})();
+</script>
+<footer>CAFE ROAM 運営事務局　お問い合わせ：<a href="mailto:info.ichi.s@gmail.com">info.ichi.s@gmail.com</a></footer>
+</main>
+</body>
+</html>
