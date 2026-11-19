@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>フレンド招待｜CAFE ROAM</title>
+<title>友達招待｜CAFE ROAM</title>
 <style>
 :root{color-scheme:light dark;--bg:#FFFBF0;--fg:#2B2622;--muted:#6B625A;--line:#E8DFCF;--accent:#B7791F}
 @media (prefers-color-scheme:dark){:root{--bg:#1C1A17;--fg:#F3EEE6;--muted:#B5ACA2;--line:#3A352F;--accent:#F2C14E}}
@@ -22,17 +22,17 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line)}
 <body>
 <main>
 <nav><a href="../">CAFE ROAM</a></nav>
-<h1>CAFE ROAM のフレンド招待</h1>
-<p id="who">フレンドの招待が届いています。</p>
+<h1>CAFE ROAM の友達招待</h1>
+<p id="who">友達の招待が届いています。</p>
 <p><a id="open" href="caferoam://friends/add" style="display:inline-block;padding:12px 20px;border-radius:999px;background:#2FA36B;color:#fff;text-decoration:none;font-weight:bold">アプリで開く</a></p>
-<p class="meta">ボタンを押しても開かないときは、CAFE ROAM のアプリを入れてから、もう一度このページを開いてください。アプリでは「フレンド」→「フレンドを追加」から、ユーザーIDで探すこともできます。</p>
+<p class="meta">ボタンを押しても開かないときは、CAFE ROAM のアプリを入れてから、もう一度このページを開いてください。アプリでは「友達」→「友達を追加」から、ユーザーIDで探すこともできます。</p>
 <script>
 (function () {
   var m = location.search.match(/[?&]u=([a-z0-9_]{3,20})/i);
   if (!m) return;
   var h = m[1].toLowerCase();
   var url = 'caferoam://invite/' + h;
-  document.getElementById('who').textContent = '@' + h + ' さんからのフレンド招待です。';
+  document.getElementById('who').textContent = '@' + h + ' さんからの友達招待です。';
   document.getElementById('open').setAttribute('href', url);
   location.href = url;
 })();
